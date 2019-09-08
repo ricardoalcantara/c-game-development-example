@@ -1,0 +1,33 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Linux Make",
+            "type": "shell",
+            "command": "make",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Linux Generate",
+            "type": "shell",
+            "command": "vendor/linux/premake5 gmake2"
+        },
+        {
+            "label": "Windows Generate vs2017",
+            "type": "process",
+            "command": "vendor/windows/premake5.exe",
+            "args": ["vs2017"]
+        },
+        {
+            "label": "Windows Generate vs2019",
+            "type": "process",
+            "command": "vendor/windows/premake5.exe",
+            "args": ["vs2019"]
+        }
+    ]
+}
