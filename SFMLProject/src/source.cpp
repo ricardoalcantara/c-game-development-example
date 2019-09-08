@@ -1,12 +1,3 @@
-#include <iostream>
-
-int main(int argc, char const *argv[]) 
-{
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
-
-/*
 #include <SFML/Graphics.hpp>
 
 int main()
@@ -31,4 +22,3 @@ int main()
 
     return 0;
 }
-*/
