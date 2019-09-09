@@ -7,9 +7,12 @@ project "SFMLProject"
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     systemversion "latest"
 
+    pchheader "pch.hpp"
+    pchsource "src/pch.hpp"
+
     files
     {
-        "src/**.h",
+        "src/**.hpp",
         "src/**.cpp",
     }
 
