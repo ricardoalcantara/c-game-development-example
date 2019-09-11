@@ -8,9 +8,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "%{wks.location}/libs/glfw-3.3/include"
 IncludeDir["GLEW"] = "%{wks.location}/libs/glew-2.1.0/include"
-IncludeDir["glm"] = "%{wks.location}/libs/glm"
 IncludeDir["spdlog"] = "%{wks.location}/libs/spdlog-1.x/include"
 IncludeDir["fmt"] = "%{wks.location}/libs/fmt-6.0.0/include"
+IncludeDir["bullet"] = "%{wks.location}/libs/bullet3-2.88/src"
+IncludeDir["glm"] = "%{wks.location}/libs/glm"
+
 
 group "Dependencies"
     include "libs/glew-2.1.0"
@@ -20,5 +22,6 @@ group "Dependencies"
     include "ConsoleApp"
     include "SFMLProject"
     include "OpenGLProject"
+    include "libs/bullet3-2.88"
     
 

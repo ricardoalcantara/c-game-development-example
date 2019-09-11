@@ -3,7 +3,11 @@
 
 #include <glm/glm.hpp>
 
+#include <btBulletDynamicsCommon.h>
+
 #include "log.hpp"
+
+btDiscreteDynamicsWorld* dynamicsWorld;
 
 int main(int argc, char const *argv[])
 {

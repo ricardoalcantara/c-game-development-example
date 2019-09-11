@@ -12,7 +12,7 @@ project "OpenGLProject"
         "src/**.h",
         "src/**.cpp",
         "%{IncludeDir.glm}/glm/**.hpp",
-		"%{IncludeDir.glm}/glm/**.inl",
+        "%{IncludeDir.glm}/glm/**.inl",
     }
 
     includedirs
@@ -22,7 +22,8 @@ project "OpenGLProject"
         "%{IncludeDir.GLEW}",
         "%{IncludeDir.spdlog}",
         "%{IncludeDir.fmt}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.bullet}"
     }
 
     links 
@@ -30,7 +31,8 @@ project "OpenGLProject"
         "GLFW",
         "GLEW",
         "fmt",
-        "spdlog"
+        "spdlog",
+        "bullet"
     }
 
     filter "system:windows"

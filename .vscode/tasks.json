@@ -6,7 +6,16 @@
         {
             "label": "Linux Make",
             "type": "shell",
-            "command": "make",
+            "command": "make -j8",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "Linux Make Clean",
+            "type": "shell",
+            "command": "make clean",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -15,7 +24,11 @@
         {
             "label": "Linux Generate",
             "type": "shell",
-            "command": "vendor/linux/premake5 gmake2"
+            "command": "vendor/linux/premake5 gmake2",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "Windows Generate vs2017",
