@@ -14,6 +14,12 @@ project "GLEW"
 		"src/glewinfo.c",
 		"src/visualinfo.c"
 	}
+
+	includedirs
+    {
+        "include"
+	}
+	
 	filter "system:linux"
 		pic "On"
 
