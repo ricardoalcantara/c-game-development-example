@@ -11,6 +11,7 @@ project "OpenGLProject"
     {
         "src/**.h",
         "src/**.cpp",
+        "%{wks.location}/commons",
         "%{IncludeDir.glm}/glm/**.hpp",
         "%{IncludeDir.glm}/glm/**.inl",
     }
@@ -18,6 +19,7 @@ project "OpenGLProject"
     includedirs
     {
         "src",
+        "%{wks.location}/commons",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.GLEW}",
         "%{IncludeDir.spdlog}",
