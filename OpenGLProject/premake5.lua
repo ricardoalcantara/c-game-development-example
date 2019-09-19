@@ -14,6 +14,8 @@ project "OpenGLProject"
         "%{wks.location}/commons",
         "%{IncludeDir.glm}/glm/**.hpp",
         "%{IncludeDir.glm}/glm/**.inl",
+        "%{IncludeDir.stb}/*.h",
+        "%{IncludeDir.stb}/*.cpp",
     }
 
     includedirs
@@ -25,7 +27,8 @@ project "OpenGLProject"
         "%{IncludeDir.spdlog}",
         "%{IncludeDir.fmt}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.bullet}"
+        "%{IncludeDir.bullet}",
+        "%{IncludeDir.stb}",
     }
 
     links 

@@ -73,7 +73,7 @@ void initGame()
 
     camera = new Camera(45.0f, 800, 600, 0.1f, 100.0f, glm::vec3(0.0f, 4.0f, 6.0f));
     
-    light = new LightRenderer(MeshType::kCube, camera);
+    light = new LightRenderer(MeshType::kTriangle, camera);
     light->setProgram(flatShaderProgram);
     light->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
 

@@ -12,6 +12,7 @@ IncludeDir["spdlog"] = "%{wks.location}/libs/spdlog-1.x/include"
 IncludeDir["fmt"] = "%{wks.location}/libs/fmt-6.0.0/include"
 IncludeDir["bullet"] = "%{wks.location}/libs/bullet3-2.88/src"
 IncludeDir["glm"] = "%{wks.location}/libs/glm"
+IncludeDir["stb"] = "%{wks.location}/libs/stb-master"
 
 
 group "Dependencies"
