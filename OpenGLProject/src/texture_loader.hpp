@@ -1,21 +1,15 @@
 #ifndef TEXTURE_LOADER_H
 #define TEXTURE_LOADER_H
 
-#include "stb_image.h"
+#include <string>
+#include <GL/glew.h>
 
 class TextureLoader
 {
-private:
 public:
     TextureLoader();
     ~TextureLoader();
+
+    GLuint getTextureID(std::string texFileName);
 };
-
-TextureLoader::TextureLoader()
-{
-}
-
-TextureLoader::~TextureLoader()
-{
-}
 #endif

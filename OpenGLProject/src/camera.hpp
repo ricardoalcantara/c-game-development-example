@@ -24,6 +24,6 @@ public:
     inline glm::mat4 getViewMatrix() { return viewMatrix;}
     inline glm::mat4 getProjectionMatrix() { return projectionMatrix;}
     inline glm::vec3 getCameraPosition() { return cameraPos;}
-    inline glm::mat4 getViewProjectionMatrix() { return viewMatrix * projectionMatrix;}
+    inline glm::mat4 getViewProjectionMatrix() { return projectionMatrix * viewMatrix;}
 };
 #endif
