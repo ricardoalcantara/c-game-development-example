@@ -9,3 +9,6 @@ Makefile
 *.sln
 *.vcxproj*
 .vs
+
+#Libs
+libs/freetype-*/
