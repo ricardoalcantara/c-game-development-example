@@ -39,5 +39,15 @@
 			"}",
 			"#endif",
 		]
+	},
+	"Include <>": {
+		"scope": "cpp",
+		"prefix": "include<>",
+		"body": "#include <${1}>"
+	},
+	"Include \"\"": {
+		"scope": "cpp",
+		"prefix": "include\"\"",
+		"body": "#include \"${1}\""
 	}
 }

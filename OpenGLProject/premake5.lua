@@ -29,6 +29,12 @@ project "OpenGLProject"
         "%{IncludeDir.glm}",
         "%{IncludeDir.bullet}",
         "%{IncludeDir.stb}",
+        "%{IncludeDir.freetype}",
+    }
+
+    libdirs
+    {
+        "%{LibDir.freetype}",
     }
 
     links 
@@ -37,7 +43,8 @@ project "OpenGLProject"
         "GLEW",
         "fmt",
         "spdlog",
-        "bullet"
+        "bullet",
+        "freetype",
     }
 
     filter "system:windows"

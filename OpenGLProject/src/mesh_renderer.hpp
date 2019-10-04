@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -13,7 +14,6 @@
 class MeshRenderer
 {
 private:
-    btRigidBody* rigidBody;
     Camera* camera;
     std::vector<Vertex> vertices;
     std::vector<GLuint> indices;
@@ -22,7 +22,11 @@ private:
     glm::vec3 position, scale;
     GLuint vao, vbo, ebo, program, texture;
 public:
-    MeshRenderer(MeshType modelType, Camera* _camera, btRigidBody* _rigidBody);
+    btRigidBody* rigidBody;
+    std::string name = "";
+
+public:
+    MeshRenderer(MeshType modelType, std::string _name, Camera* _camera, btRigidBody* _rigidBody);
     ~MeshRenderer();
 
     void draw();
