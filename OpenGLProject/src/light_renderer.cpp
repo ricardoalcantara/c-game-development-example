@@ -1,9 +1,11 @@
 #include "light_renderer.hpp"
 #include "log.hpp"
 
-LightRenderer::LightRenderer(MeshType meshType, Camera *camera)
+LightRenderer::LightRenderer(MeshType meshType, Camera *camera, float _specularStrength, float _ambientStrength)
 {
     this->camera = camera;
+    specularStrength = _specularStrength;
+    ambientStrength = _ambientStrength;
 
     LOG_DEBUG("Light Renderer Type {}", meshType);
     switch (meshType)

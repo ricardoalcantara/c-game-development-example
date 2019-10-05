@@ -19,7 +19,11 @@ private:
     GLuint vbo, ebo, vao, program;
 
 public:
-    LightRenderer(MeshType meshType, Camera* camera);
+    float specularStrength;
+    float ambientStrength;
+
+public:
+    LightRenderer(MeshType meshType, Camera* camera, float _specularStrength, float _ambientStrength);
     ~LightRenderer();
 
     void draw();
@@ -27,6 +31,6 @@ public:
     inline void setColor(glm::vec3 _color) { color = _color; }
     inline void setProgram(GLuint _program) { program = _program; }
     inline glm::vec3 getPosition() { return position; }
-    inline glm::vec3 colorPosition() { return color; }
+    inline glm::vec3 getColor() { return color; }
 };
 #endif

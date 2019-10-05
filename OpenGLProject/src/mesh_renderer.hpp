@@ -21,12 +21,13 @@ private:
 
     glm::vec3 position, scale;
     GLuint vao, vbo, ebo, program, texture;
+    LightRenderer* light;
 public:
     btRigidBody* rigidBody;
     std::string name = "";
 
 public:
-    MeshRenderer(MeshType modelType, std::string _name, Camera* _camera, btRigidBody* _rigidBody);
+    MeshRenderer(MeshType modelType, std::string _name, Camera* _camera, btRigidBody* _rigidBody, LightRenderer* _light);
     ~MeshRenderer();
 
     void draw();

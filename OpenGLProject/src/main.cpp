@@ -14,6 +14,7 @@
 
 btDiscreteDynamicsWorld* dynamicsWorld;
 Camera* camera;
+LightRenderer* light;
 MeshRenderer* sphere;
 MeshRenderer* ground;
 MeshRenderer* enemy;
@@ -115,9 +116,13 @@ int main(int argc, char const *argv[])
     LOG_DEBUG("glfw terminated");
 
     delete sphere;
+    delete light;
     delete ground;
+    delete enemy;
+    delete label;
     delete camera;
     delete dynamicsWorld;
+
     return 0;
 }
 
@@ -141,6 +146,9 @@ void initGame()
     GLuint texturedShaderProgram = shader.CreateProgram(
         "assets/shaders/textured_model.vs",
         "assets/shaders/textured_model.fs");
+    GLuint litTexturedShaderProgram = shader.CreateProgram(
+        "assets/shaders/lit_textured_model.vs",
+        "assets/shaders/lit_textured_model.fs");
     GLuint textShaderProgram = shader.CreateProgram(
         "assets/shaders/text.vs",
         "assets/shaders/text.fs");
@@ -151,6 +159,11 @@ void initGame()
 
     camera = new Camera(45.0f, 800, 600, 0.1f, 100.0f, glm::vec3(0.0f, 4.0f, 20.0f));
     
+    light = new LightRenderer(MeshType::kSphere, camera, 0.1f, 0.5f);
+    light->setProgram(flatShaderProgram);
+	light->setPosition(glm::vec3(0.0f, 10.0f, 0.0f));
+	light->setColor(glm::vec3(1.0f, 1.0f, 1.0f));
+
     btCollisionShape* sphereShape = new btSphereShape(1.0f);
     btDefaultMotionState* sphereMotionState = new btDefaultMotionState(
         btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 5.0f, 0))
@@ -170,8 +183,8 @@ void initGame()
 
     dynamicsWorld->addRigidBody(sphereRigidBody);
 
-    sphere = new MeshRenderer(MeshType::kSphere, "hero", camera, sphereRigidBody);
-    sphere->setProgram(texturedShaderProgram);
+    sphere = new MeshRenderer(MeshType::kSphere, "hero", camera, sphereRigidBody, light);
+    sphere->setProgram(litTexturedShaderProgram);
     sphere->setTexture(sphereTexture);
     sphere->setScale(glm::vec3(1.0f));
     sphereRigidBody->setUserPointer(sphere);
@@ -192,8 +205,8 @@ void initGame()
 
     dynamicsWorld->addRigidBody(groundRigidBody);
 
-    ground = new MeshRenderer(MeshType::kCube, "ground", camera, groundRigidBody);
-    ground->setProgram(texturedShaderProgram);
+    ground = new MeshRenderer(MeshType::kCube, "ground", camera, groundRigidBody, light);
+    ground->setProgram(litTexturedShaderProgram);
     ground->setTexture(groundTexture);
     ground->setScale(glm::vec3(4.0f, 0.5f, 4.0f));
     groundRigidBody->setUserPointer(ground);
@@ -215,8 +228,8 @@ void initGame()
 
     dynamicsWorld->addRigidBody(enemyRigidBody);
 
-    enemy = new MeshRenderer(MeshType::kCube, "enemy", camera, enemyRigidBody);
-    enemy->setProgram(texturedShaderProgram);
+    enemy = new MeshRenderer(MeshType::kCube, "enemy", camera, enemyRigidBody, light);
+    enemy->setProgram(litTexturedShaderProgram);
     enemy->setTexture(groundTexture);
     enemy->setScale(glm::vec3(1.0f, 1.0f, 1.0f));
     enemyRigidBody->setUserPointer(enemy);
@@ -236,9 +249,11 @@ void renderScene()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(77.0/255.0, 166.0/255.0, 255.0/255.0, 1.0);
     // glClearColor(1.0, 1.0, 0.0, 1.0);
+
+    light->draw();
     sphere->draw();
     ground->draw();
     enemy->draw();
-    
+
     label->draw();
 }
